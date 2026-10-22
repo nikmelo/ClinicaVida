@@ -1,0 +1,16 @@
+@model IEnumerable<Especialidade>
+@{
+    var contagem = (Dictionary<int, int>)ViewBag.MedicosPorEspecialidade;
+}
+
+<h2>Especialidades</h2>
+
+<ul>
+@foreach (var e in Model)
+{
+    <li>
+        <a href="/Medicos?especialidadeId=@e.Id">@e.Nome</a>
+        (@contagem[e.Id] médicos)
+    </li>
+}
+</ul>
